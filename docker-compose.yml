@@ -1,0 +1,15 @@
+services:
+  medicines-db:
+    image: postgres:17
+    container_name: medicines-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: medicines_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5433:5432"
+    volumes:
+      - medicines_db_data:/var/lib/postgresql/data
+volumes:
+  medicines_db_data:
